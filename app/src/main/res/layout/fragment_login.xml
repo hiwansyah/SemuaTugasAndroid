@@ -50,7 +50,7 @@
                 android:onClick="login"
                 android:hint="Login" />
             <com.google.android.material.textview.MaterialTextView
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="50dp"
                 android:id="@+id/tvRegister"
                 android:hint="Register Now !"
                 android:textAlignment="center"
