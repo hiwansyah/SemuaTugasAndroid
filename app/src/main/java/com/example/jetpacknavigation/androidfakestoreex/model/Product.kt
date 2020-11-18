@@ -14,5 +14,6 @@ data class Product(
 		@field:SerializedName("title")
 		val title: String,
 		@field:SerializedName("category")
-		val category: String
+		val category: String,
+		var mount: Int = 0
 )

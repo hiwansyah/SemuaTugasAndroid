@@ -5,5 +5,4 @@ import androidx.lifecycle.ViewModel
 
 class ProductViewModel(private val mContext: Context): ViewModel(){
 
-
 }

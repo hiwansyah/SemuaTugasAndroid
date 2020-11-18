@@ -36,5 +36,13 @@
             android:hint="Price"
             android:lines="1"
             android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/btnBuy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_add_shopping_cart_24"
+            android:layout_gravity="right"
+            />
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>

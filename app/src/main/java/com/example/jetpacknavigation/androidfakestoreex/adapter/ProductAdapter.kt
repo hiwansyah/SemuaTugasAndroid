@@ -8,7 +8,10 @@ import com.bumptech.glide.Glide
 import com.example.jetpacknavigation.androidfakestoreex.model.Product
 import com.example.jetpacknavigation.databinding.ItemProductsBinding
 
-class ProductAdapter(private val context: Context) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+class ProductAdapter(private val context: Context, private val listener: ProductListener) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+    interface ProductListener{
+        fun onClick(product: Product)
+    }
     private var product = listOf<Product>()
     fun setData(data: List<Product>) {
         product = data
@@ -24,12 +27,14 @@ class ProductAdapter(private val context: Context) : RecyclerView.Adapter<Produc
         holder.bindData(product[position])
     }
 
+    private var list = listOf<Product>()
     inner class ProductViewHolder(private val binding: ItemProductsBinding) :
             RecyclerView.ViewHolder(binding.root) {
         fun bindData(product: Product) {
             binding.tvTitle.text = product.title
-            binding.tvPrice.text = "$ "+product.price.toString()
+            binding.tvPrice.text = "$ " + product.price.toString()
             Glide.with(binding.root).load(product.image).into(binding.ivImage)
+            binding.btnBuy.setOnClickListener { listener.onClick(product) }
         }
     }
 
