@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.jetpacknavigation.databinding.ItemUsersBinding
+import com.example.jetpacknavigation.fakeuserexersize.model.DataItem
 import com.example.jetpacknavigation.fakeuserexersize.model.User
 
 class UserAdapter(private val context: Context, private val listener: UserListener) :
@@ -34,9 +35,10 @@ class UserAdapter(private val context: Context, private val listener: UserListen
             field = value
             notifyDataSetChanged()
         }
+
     fun deleteProductById(id: Int){
-        val index = list.indexOfFirst { it.id == id }
-        if (index != -1){
+        val index = list.indexOfFirst { it.id == id}
+        if (index != 1) {
             notifyItemRemoved(index)
         }
     }
