@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isGone
 import com.example.jetpacknavigation.R
 import com.example.jetpacknavigation.databinding.FragmentUsersBinding
 import com.example.jetpacknavigation.fakeuserexersize.adapter.UserAdapter
 import com.example.jetpacknavigation.fakeuserexersize.model.DataItem
 import com.example.jetpacknavigation.fakeuserexersize.model.User
 import com.example.jetpacknavigation.fakeuserexersize.network.UserClient
+import kotlinx.android.synthetic.main.activity_users.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -56,10 +58,12 @@ class UsersFragment : Fragment(), UserAdapter.UserListener {
                     response: Response<DataItem>
             ) {
                 response.body()?.let { it -> adapter.list = it.data }
+                binding.pgbar.visibility = View.GONE
             }
 
             override fun onFailure(call: Call<DataItem>, t: Throwable) {
                 onError(t)
+                binding.pgbar.visibility = View.VISIBLE
             }
         })
 
